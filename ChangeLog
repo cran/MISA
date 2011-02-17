@@ -1,0 +1,91 @@
+2011-01-12  Gary Lipton  <gl37@tack.isds.duke.edu>
+	*  (SUMMARY) Incorporated C function bayesglm_fit() from BAS.
+	
+	*  converge.EMC.R
+
+	*  fit.EMC.R
+
+	*  post.prob.R 
+
+2010-10-15  Gary Lipton  <gl37@tack.isds.duke.edu>
+
+        *  Gene.EMC.R: Case-control status may be expressed as a factor,
+        a logical, or a numeric.
+
+2010-08-18  Gary Lipton  <gl37@tack.isds.duke.edu>
+
+	*  (SUMMARY) Correctly handle case with no forced variables.
+
+	*  combine.EMC.R: New file. This function combines results from 
+	multiple runs.
+
+	*  expand.data.SNP.R: Handle case with no forced variables.
+
+	*  fit.EMC.R: Default is now no forced variables.
+
+	*  Gene.EMC.R: Dynamically report library versions using
+	installed.packages(). Tweaks to log file.
+
+2010-07-07  Gary Lipton  <gl37@tack.isds.duke.edu>
+
+	*  (SUMMARY) Argument and data checking have been added. Minor
+	performance improvements have been incorporated.
+	
+	*  MISA is now compatible with BAS 0.9.
+	
+	*  Each run creates a time-stamped log file for errors and
+	warnings.
+	
+	*  All input parameters for Gene.EMC are checked for type, range, 
+	and consistency.
+	
+	*  The input data frame is processed in the following respects:
+	   a. Monomorphic SNPs are deleted.
+	   b. Case values and SNP genotypes must be in {0, 1} and
+	      {0, 1, 2}, respectively.
+	   c. Definitions of minor & major alleles are swapped if 
+	      Nmajor < Nminor.
+
+	*  An optional progress bar has been added.
+
+	*  Function name changes:
+	     emc.converge -> converge.EMC
+	     data.snp     -> expand.data.snp
+	     fit          -> fit.EMC	
+
+	*  fit.EMC.R: Eliminated use of model.matrix() & model.frame()
+	(for performance). Replaced glm.fit() with BAS::bayesglm.fit().
+
+2010-05-20  Gary Lipton  <gl37@tack.isds.duke.edu>
+
+	*  (SUMMARY) The case variable no longer must be called "case",
+	but it must be the first column in the design matrix. A GLM
+	procedure from the BAS package coded in C replaces stats::glm(). A
+	warning is printed when the design matrix is not full-rank.
+
+2010-03-09  Gary Lipton  <gl37@tack.isds.duke.edu>
+
+	*  (SUMMARY): Speed improvements and support for parallel
+	processing (multicore package) have been added. Bf4assoc has
+        been added.
+	
+	*  crossover.R: Replaced two calls to fit() with
+	lapply()/mclapply(). Simplified logic of swapping code and
+	eliminated calls to cbind().
+	
+	*  Gene.EMC.R: Added multicore support: calls to mutation() for
+	each chain may be run in parallel. Pop.emc.matrix (formerly
+	pop.emc) is pre-allocated to avoid multiple calls to
+	rbind(). Added column to pop.emc.matrix to record number of
+	acceptances for each model. Replaced 'paste(samp.model, collapse="")'
+	with more efficient 'rawToChar(as.raw(samp.model + 48))'.
+
+	*  mutation.R: Eliminate redundant call to fit() for the current
+	model, reducing calls to fit() by 25%.
+
+	*  bf4assoc.R: New command to calculate Bayes factors in favor of
+	three genetic models of association.
+
+	*  Added vignette.
+	
+
