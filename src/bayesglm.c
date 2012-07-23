@@ -170,7 +170,7 @@ glmfitptr *glm_fit_C(double *X, double *Y, int n, int p, glmstptr *glmfamily,
   double one = 1.0, devold, devnew;
   double tol = fmin(1e-07, epsilon / 1000);
   char   trans[]="N";
-  coefdistptr coefprior;
+  coefdistptr coefprior = {NULL, NULL, NULL, NULL, NULL, NULL};
 
   // glmresult & its components
   glmfitptr *glmresult = (glmfitptr *)Calloc(1, glmfitptr);

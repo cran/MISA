@@ -1,3 +1,6 @@
+#ifndef SAMPLING_H
+#define SAMPLING_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "mconf.h"
@@ -139,4 +142,4 @@ double AIC(double Rsquare, int n,  int p, double SSY);
 NODEPTR make_node(double pr);
 SEXP getListElement(SEXP list, char *str);
 
-
+#endif /* SAMPLING_H */

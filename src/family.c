@@ -123,13 +123,13 @@ double poisson_dispersion(double *resid,  double *weights, int n, int rank) {
 /* Gaussian */
 double Gaussian_dispersion(double *resid,  double *weights, int n, int rank) {
   double dispersion = 0.0;
-  int i, df;
+  int i, dgrf = 0; // Changed from df; df is defined in Rmath.h. gl37
 
   for (i = 0; i<n; i++) {
-    if (weights[i] > 0) df += 1;
+    if (weights[i] > 0) dgrf += 1;
     dispersion += weights[i]*resid[i]*resid[i];
   }
-   return(dispersion/(double) (df - rank));
+   return(dispersion/(double) (dgrf - rank));
 }
 
 
@@ -148,7 +148,8 @@ double deviance(double *res, int n) {
 
 double quadform (double *bwork, double *R,  int p) {
 
-  double Q = 0.0, alpha=1.0, beta=0.0;
+  double Q = 0.0;
+  // double  alpha=1.0, beta=0.0;
   int inc = 1;
   char uplo[] = "U", trans[]="T", diag[]="N";
   //  F77_NAME(dcopy)(&p, &b[0], &inc,  &bwork[0], &inc); 
@@ -160,7 +161,8 @@ double quadform (double *bwork, double *R,  int p) {
 
 void chol2se(double *qr, double *se, double *R, double *covwork, int p, int n) {
 
-  int i, j, l, info;
+  int i, j, l;
+  // int info;
 
   for (j=0, l=0; j < p; j++) {
 
@@ -181,7 +183,8 @@ for (j=0; j < p; j++) {
 
 void QR2cov(double *qr,  double *R, double *covwork, int p,  int n) {
 
-  int i, j, l, info;
+  int i, j, l;
+  // int info;
 
   for (j=0, l=0; j < p; j++) {
 
@@ -198,7 +201,8 @@ void QR2cov(double *qr,  double *R, double *covwork, int p,  int n) {
 
 void  Lapack_chol2inv(double *A, int sz, double *ans)
 {
-  int inc = 1, i, j;
+  // int inc = 1;
+  int i, j;
   //	F77_NAME(dcopy)(&sz, &A[0], &inc,  &ans[0], &inc); 
 	for (j = 0; j < sz; j++) {
 	    for (i = 0; i <= j; i++)

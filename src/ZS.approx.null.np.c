@@ -61,6 +61,7 @@ double LogBF_ZS_null(double R2, int n, int d){
   if(status!=1.){
     if(status==0.) Rprintf("\n No positive roots\n");
     else Rprintf("\n More than one positive root\n");
+    return(0.0); // Added by gl37 to avoid compiler warnings.
   }
   else{ 
     if (k == 0) { return(0.0); }

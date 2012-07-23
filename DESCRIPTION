@@ -26,10 +26,10 @@ Description: The functions in this package focus on intermediate
         global summaries of the posterior probability and Bayes Factor
         giving evidence of an association in the set of SNPs of
         interest.
-Version: 2.11.1-1.0
+Version: 2.11.1-1.0.1
 License: Unlimited
-Depends: coda
+Depends: R (>= 2.10), coda
 Suggests: tcltk
-Packaged: 2011-02-17 14:02:11 UTC; gl37
+Packaged: 2012-07-23 09:31:19 UTC; ripley
 Repository: CRAN
-Date/Publication: 2011-02-17 19:30:23
+Date/Publication: 2012-07-23 10:35:31

@@ -1,3 +1,6 @@
+2011-02-18  Gary Lipton  <gl37@tack.isds.duke.edu>
+	*  (SUMMARY) Tweaks for publishing on CRAN.
+
 2011-01-12  Gary Lipton  <gl37@tack.isds.duke.edu>
 	*  (SUMMARY) Incorporated C function bayesglm_fit() from BAS.
 	
@@ -9,8 +12,8 @@
 
 2010-10-15  Gary Lipton  <gl37@tack.isds.duke.edu>
 
-        *  Gene.EMC.R: Case-control status may be expressed as a factor,
-        a logical, or a numeric.
+	*  Gene.EMC.R: Case-control status may be expressed as a factor,
+	a logical, or a numeric.
 
 2010-08-18  Gary Lipton  <gl37@tack.isds.duke.edu>
 

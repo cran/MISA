@@ -118,9 +118,8 @@ double info_full(double g, double eps, int n, int p, int k){
   aux=aux+3./R_pow_di(g,2)-2*(double)n/R_pow_di(g,3);
   aux=aux/2.;
   return(aux);
-
-  return(aux);
 }
+
 
 void posroot_full(double a, double b, double c, double *root, double *status)
 {
